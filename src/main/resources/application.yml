@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${mysqlHost:localhost}:3306/bar?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: ${mysqlUsername:root}
+    password: ${mysqlPassword:root}
+    class: com.mysql.jdbc.Driver
