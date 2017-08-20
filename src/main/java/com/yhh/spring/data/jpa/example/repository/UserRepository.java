@@ -12,4 +12,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query(value = "SELECT a.* FROM user_group b LEFT JOIN user a on b.user_id = a.user_id WHERE b.group_id = ?1", nativeQuery = true)
     List<User> findAllByGroupId(Integer groupId);
+
+    //note: must be userId, rather than user_id.
+    @Query(value = "SELECT u FROM #{#entityName} u WHERE u.userId = ?1")
+    List<User> findUserByUserId(String userId);
 }
